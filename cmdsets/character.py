@@ -85,6 +85,6 @@ class CharacterCmdSet(CmdSet):
         self.add(building.CmdTag())
         self.add(building.CmdSpawn())
 
-        # Batchprocessor commands
+        # Batch processor commands
         self.add(batchprocess.CmdBatchCommands())
         self.add(batchprocess.CmdBatchCode())
