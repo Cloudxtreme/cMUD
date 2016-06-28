@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+
+{% load staticfiles %}
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="author" content="consecroMUD">
+<meta itemprop="name" content="consecroMUD">
+<meta itemprop="description" content="consecroMUD">
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/main.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'webclient/css/main.css' %}" />
+{% block header_ext %}
+{% endblock %}
+    {% block jquery_import %}
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    {% endblock %}
+    <script type="text/javascript" charset="utf-8">
+        if(!window.jQuery) {
+            document.write("<div class='err'>jQuery library not found or the online version could not be reached.</div>");
+        }
+    </script>
+
+    <!-- Set up Websocket url and load the evennia.js library-->
+    <script language="javascript" type="text/javascript">
+        {% if websocket_enabled %}
+            var wsactive = true;
+        {% else %}
+            var wsactive = false;
+        {% endif %}
+
+        {% if browser_sessid %}
+           var csessid = "{{browser_sessid}}";
+        {% else %}
+           var csessid = false;
+        {% endif %}
+
+        {% if websocket_url %}
+            var wsurl = "{{websocket_url}}:{{websocket_port}}";
+        {% else %}
+            var wsurl = "ws://" + this.location.hostname + ":{{websocket_port}}";
+        {% endif %}
+    </script>
+    <script src={% static "webclient/js/evennia.js" %} language="javascript" type="text/javascript" charset="utf-8"/></script>
+
+    <!-- Load gui library -->
+    {% block guilib_import %}
+        <script src={% static "webclient/js/webclient_gui.js" %} language="javascript" type="text/javascript" charset="utf-8"></script>
+    {% endblock %}
+
+</head>
+<title>ConsecroMUD</title>
+<body>
+<div class="topbar">
+	<div class="fill">
+		<div class="container">
+			<a class="brand" href="/">ConsecroMUD</a>
+			<ul class="nav-left">
+				<li><a href="/">home</a></li>
+                {% if webclient_enabled %}
+                <li><a href="{% url 'webclient:index' %}">play</a></li>
+                {% endif %}
+				<li><a href="{% url 'curses:index' %}">curses</a></li>
+				<li><a href="{% url 'areas:index' %}">areas</a></li>
+				<li><a href="{% url 'features' %}">features</a></li>
+				<li><a href="{% url 'faqs' %}">faqs</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container">
+
+			<div class="blackbox">
+
+    <div id="connecting">
+        {% block connecting %}
+        {% endblock %}
+    </div>
+
+    <div id="noscript" class="err">
+    <box id="box-br1">=======================================================================</box>
+    <box id="box-mid"><box class="box-center h2"></box>Javascript Error</box>
+    <box id="box-br1">=======================================================================</box>
+        <!-- This is will only fire if javascript is actually active -->
+        <script language="javascript" type="text/javascript">
+            $('#noscript').remove();
+        </script>
+    </div>
+
+        {% block client %}
+        {% endblock %}
+
+			</div>
+
+	<footer>
+	<p>
+		 © Consecro Creations 2016
+	</p>
+	</footer>
+</div>
+
+</body>
+</html>

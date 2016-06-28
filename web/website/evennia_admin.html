@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<box id="box-br1">=======================================================================</box>
+<box id="box-mid"><box class="box-center h2">ADMIN PORTAL</box></box>
+<box id="box-br2">=======================================================================</box>
+<box id="box-mid"><box class="box-left"><a href="{% url "admin:players_playerdb_changelist" %}">Players</a></box></box>
+<box id="box-mid"><box class="box-left"><a href="{% url "admin:objects_objectdb_changelist" %}">Objects</a></box></box>
+<box id="box-mid"><box class="box-left"><a href="{% url "admin:scripts_scriptdb_changelist" %}">Scripts</a></box></box>
+<box id="box-mid"><box class="box-left"><a href="{% url "admin:comms_channeldb_changelist" %}">Channels</a></box></box>
+<box id="box-mid"><box class="box-left"><a href="{% url "admin:help_helpentry_changelist" %}">Help Topics</a></box></box>
+<box id="box-br2">=======================================================================</box>
+<box id="box-mid"><box class="box-left"><a href="{% url "django_admin" %}">* Advanced Tools *</a></box></box>
+<box id="box-br3">=======================================================================</box>
+{% endblock content %}

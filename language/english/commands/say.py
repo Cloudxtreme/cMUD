@@ -1,0 +1,1 @@
+SAY_NOTHING = "|bYou mutter something to yourself...|n"

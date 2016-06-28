@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="author" content="consecroMUD">
+<meta itemprop="name" content="consecroMUD">
+<meta itemprop="description" content="consecroMUD">
+<link rel="stylesheet" type="text/css" href="{% static 'website/css/main.css' %}" />
+{% block css_links %}
+{% endblock %}
+</head>
+<title>ConsecroMUD</title>
+<body>
+<div class="topbar">
+	<div class="fill">
+		<div class="container">
+			<a class="brand" href="/">ConsecroMUD</a>
+			<ul class="nav-left">
+				<li><a href="/">home</a></li>
+                {% if webclient_enabled %}
+                <li><a href="{% url 'webclient:index' %}">play</a></li>
+                {% endif %}
+				<li><a href="{% url 'curses:index' %}">curses</a></li>
+				<li><a href="{% url 'areas:index' %}">areas</a></li>
+				<li><a href="{% url 'features' %}">features</a></li>
+				<li><a href="{% url 'faqs' %}">faqs</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="container">
+			<div class="blackbox">
+<box id="box-br1">=======================================================================</box>
+<box id="box-mid"><box class="box-center"></box></box>
+<box id="box-mid"><box class="box-center h1">-+-- ((onsecro  //\/\ud --+-</box></box>
+<box id="box-mid"><box class="box-center">land of the cursed</box></box>
+<box id="box-mid"><box class="box-center"></box></box>
+<box id="box-br3">=======================================================================</box>
+
+{% block content %}
+{% endblock %}
+
+			</div>
+	<footer>
+	<p>
+		 © Consecro Creations 2016
+	</p>
+	</footer>
+</div>
+</body>
+</html>

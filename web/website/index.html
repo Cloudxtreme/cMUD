@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<box id="box-br4">---[ <white>CURRENT NEWS</white> ]----------------------------------------------------</box>
+<box id="box-mid"><box class="box-center">actively looking for coders, area builders, testers,</box></box>
+<box id="box-mid"><box class="box-center">lore friendly writers, ansi artists, and game moderators</box></box>
+<box id="box-br5">-----------------------------------------------------------------------</box>
+
+<box id="box-br4">---[ <white>SERVER STATS</white> ]----------------------------------------------------</box>
+<box id="box-mid"><box class="box-left">PLAYERS ONLINE: {{num_players_connected}}</box></box>
+<box id="box-mid"><box class="box-left">TOTAL PLAYERS: {{num_players_registered}} </box></box>
+<box id="box-mid"><box class="box-left">TOTAL ROOMS: {{num_rooms}}</box></box>
+<box id="box-br5">-----------------------------------------------------------------------</box>
+
+<box id="box-br4">---[ <white>CONNECTING</white> ]------------------------------------------------------</box>
+<box id="box-mid"><box class="box-left">SERVER: mud.consecromud.com </box></box>
+<box id="box-mid"><box class="box-left">PORT: 4040</box></box>
+<box id="box-mid"><box class="box-left">STATUS: {{cm_state}}</box></box>
+<box id="box-br5">-----------------------------------------------------------------------</box>
+{% endblock %}

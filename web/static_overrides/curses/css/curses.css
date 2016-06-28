@@ -1,0 +1,11 @@
+a.curse_link {
+text-transform: uppercase;
+display: inline-block;
+width: 80px;
+}
+.curse_desc {
+display: inline-block;
+}
+.curse_desc:before {
+content: ':'
+}

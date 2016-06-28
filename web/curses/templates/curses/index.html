@@ -1,0 +1,15 @@
+{% extends "website/base.html" %}
+
+{% load staticfiles %}
+
+{% block css_links %}
+<link rel="stylesheet" type="text/css" href="{% static 'curses/css/curses.css' %}" />
+{% endblock %}
+
+{% block content %}
+<box id="box-br4">---[ <white>CURSES</white> ]----------------------------------------------------------</box>
+<box id="box-mid"><box class="box-left"><a class="curse_link" href="{% url 'curses:vampire' %}">Vampire</a><span class="curse_desc">stalker of the night</span></box></box>
+<box id="box-mid"><box class="box-left"><a class="curse_link" href="{% url 'curses:werewolf' %}">Werewolf</a><span class="curse_desc">hunter beneath the moon</span></box></box>
+<box id="box-mid"><box class="box-left"><a class="curse_link" href="{% url 'curses:genie' %}">Genie</a><span class="curse_desc">trapped within his own power</span></box></box>
+<box id="box-br5">-----------------------------------------------------------------------</box>
+{% endblock %}
