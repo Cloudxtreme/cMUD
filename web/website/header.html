@@ -4,20 +4,30 @@
 			<a class="brand" href="/">ConsecroMUD</a>
 			<ul class="nav-left">
 
-                <!-- HOME -->
-				{% if request.get_full_path = "/" %}
-                <li class="active"><a href="/">home</a></li>
+                <!-- ACCOUNT -->
+				{% if user.is_authenticated %}
+                    {% if request.get_full_path = "/account/" %}
+                    <li class="active"><a href="{% url 'account:index' %}">account</a></li>
+                    {% else %}
+                    <li><a href="{% url 'account:index' %}">account</a></li>
+                    {% endif %}
                 {% else %}
-				<li><a href="/">home</a></li>
+                    {% if request.get_full_path = "/account/login/" %}
+                    <li class="active"><a href="{% url 'account:login' %}">login</a></li>
+                    {% else %}
+                    <li><a href="{% url 'account:login' %}">login</a></li>
+                    {% endif %}
                 {% endif %}
 
                 <!-- WEBCLIENT -->
-                {% if webclient_enabled %}
-                {% if request.get_full_path = "/webclient/" %}
-                <li class="active"><a href="{% url 'webclient:index' %}">play</a></li>
-                {% else %}
-                <li><a href="{% url 'webclient:index' %}">play</a></li>
-                {% endif %}
+                {% if user.is_authenticated %}
+                    {% if webclient_enabled %}
+                        {% if request.get_full_path = "/webclient/" %}
+                        <li class="active"><a href="{% url 'webclient:index' %}">play</a></li>
+                        {% else %}
+                        <li><a href="{% url 'webclient:index' %}">play</a></li>
+                        {% endif %}
+                    {% endif %}
                 {% endif %}
 
                 <!-- CURSES -->
