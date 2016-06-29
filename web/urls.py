@@ -21,6 +21,8 @@ custom_patterns = [
                              namespace='curses', app_name='curses')),
     url(r'^areas/', include('web.areas.urls',
                             namespace='areas', app_name='areas')),
+    url(r'^account/', include('web.account.urls',
+                              namespace='account', app_name='account')),
     url(r'^faqs/', web_views.page_faqs, name='faqs'),
     url(r'^features/', web_views.page_features, name='features'),
     url(r'^$', web_views.page_index, name="index"),
