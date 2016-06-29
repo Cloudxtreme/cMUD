@@ -51,23 +51,9 @@
 </head>
 <title>ConsecroMUD</title>
 <body>
-<div class="topbar">
-	<div class="fill">
-		<div class="container">
-			<a class="brand" href="/">ConsecroMUD</a>
-			<ul class="nav-left">
-				<li><a href="/">home</a></li>
-                {% if webclient_enabled %}
-                <li><a href="{% url 'webclient:index' %}">play</a></li>
-                {% endif %}
-				<li><a href="{% url 'curses:index' %}">curses</a></li>
-				<li><a href="{% url 'areas:index' %}">areas</a></li>
-				<li><a href="{% url 'features' %}">features</a></li>
-				<li><a href="{% url 'faqs' %}">faqs</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
+
+{% include 'website/topbar.html' %}
+
 <div class="container">
 
 			<div class="blackbox">
