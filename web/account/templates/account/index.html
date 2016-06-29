@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<box id="box-br4">---[ <white>ACCOUNT</white> ]---------------------------------------------------------</box>
+<box id="box-mid"><box class="box-left">Player: {{ user.username }}</box></box>
+<box id="box-mid"><box class="box-left">Characters :</box></box>
+<box id="box-mid"><box class="box-right"><a href="{% url 'account:logout' %}">Logout...</a></box></box>
+<box id="box-br5">-----------------------------------------------------------------------</box>
+{% endblock %}
