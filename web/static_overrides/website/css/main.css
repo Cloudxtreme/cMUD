@@ -277,3 +277,17 @@ color: yellow;
 white {
 color: #f0f0f0;
 }
+
+input {
+background: #fff;
+outline: none;
+border: none;
+}
+
+input#id_username {
+background: #555
+}
+
+input#id_password {
+background: #555
+}
