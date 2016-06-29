@@ -3,14 +3,50 @@
 		<div class="container">
 			<a class="brand" href="/">ConsecroMUD</a>
 			<ul class="nav-left">
+
+                <!-- HOME -->
+				{% if request.get_full_path = "/" %}
+                <li class="active"><a href="/">home</a></li>
+                {% else %}
 				<li><a href="/">home</a></li>
+                {% endif %}
+
+                <!-- WEBCLIENT -->
                 {% if webclient_enabled %}
+                {% if request.get_full_path = "/webclient/" %}
+                <li class="active"><a href="{% url 'webclient:index' %}">play</a></li>
+                {% else %}
                 <li><a href="{% url 'webclient:index' %}">play</a></li>
                 {% endif %}
-				<li><a href="{% url 'curses:index' %}">curses</a></li>
-				<li><a href="{% url 'areas:index' %}">areas</a></li>
-				<li><a href="{% url 'features' %}">features</a></li>
-				<li><a href="{% url 'faqs' %}">faqs</a></li>
+                {% endif %}
+
+                <!-- CURSES -->
+                {% if request.get_full_path = "/curses/" %}
+				<li class="active"><a href="{% url 'curses:index' %}">curses</a></li>
+                {% else %}
+                <li><a href="{% url 'curses:index' %}">curses</a></li>
+                {% endif %}
+
+                <!-- AREAS -->
+                {% if request.get_full_path = "/areas/" %}
+				<li class="active"><a href="{% url 'areas:index' %}">areas</a></li>
+                {% else %}
+                <li><a href="{% url 'areas:index' %}">areas</a></li>
+                {% endif %}
+
+                <!-- FEATURES -->
+                {% if request.get_full_path = "/features/" %}
+				<li class="active"><a href="{% url 'features' %}">features</a></li>
+                {% else %}
+                <li><a href="{% url 'features' %}">features</a></li>
+                {% endif %}
+
+                <!-- FAQS -->
+                {% if request.get_full_path = "/faqs/" %}
+				<li class="active"><a href="{% url 'faqs' %}">faqs</a></li>
+                {% else %}
+                <li><a href="{% url 'faqs' %}">faqs</a></li>
+                {% endif %}
 			</ul>
 		</div>
 	</div>
