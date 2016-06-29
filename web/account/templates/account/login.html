@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<box id="box-br4">-----------------------------------------------------------------------</box>
+<box id="box-mid"><box class="box-center">You are already logged in!</box></box>
+<box id="box-br5">-----------------------------------------------------------------------</box>
+
+{% else %}
+   {% if form.has_errors %}
+
+<box id="box-br4">-----------------------------------------------------------------------</box>
+<box id="box-mid"><box class="box-center">Your username and password didn't match. Please try again.</box></box>
+<box id="box-br5">-----------------------------------------------------------------------</box>
+
+   {% endif %}
+
+<box id="box-br4">---[ LOGIN ]-----------------------------------------------------------</box>
+    <form method="post" action=".">
+      {% csrf_token %}
+         <box id="box-mid"><box class="box-left">
+            <label for="id_username">Username:</label>
+            {{ form.username }}
+         </box></box>
+         <box id="box-mid"><box class="box-left">
+            <label for="id_password">Password:</label>
+            {{ form.password }}
+         </box></box>
+      <box id="box-mid"><box class="box-center"><input type="submit" value="Login" /></box></box>
+      <input type="hidden" name="next" value="{{ next }}" />
+   </form>
+<box id="box-br5">-----------------------------------------------------------------------</box>
+{% endif %}
+{% endblock %}
