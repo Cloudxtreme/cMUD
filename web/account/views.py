@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from models import PlayerChars
 
 
 def page_login(request):
@@ -15,11 +16,10 @@ def page_login(request):
 
 def page_index(request):
     """
-    login
+    account index page
     """
-
-    pagevars = {
-        "page_title": "PROFILE",
-    }
-
+    current_user = request.user
+    p_id = current_user.id
+    player_chars = PlayerChars.objects.filter(player_id=p_id)
+    pagevars = {'chars': player_chars}
     return render(request, 'account/index.html', pagevars)
