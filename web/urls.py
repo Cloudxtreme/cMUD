@@ -11,6 +11,10 @@ from evennia.web.urls import urlpatterns
 import views as web_views
 
 
+# custom error pages
+handler404 = 'web_views.page_404'
+
+
 # eventual custom patterns
 custom_patterns = [
     url(r'^chargen/', include('web.chargen.urls',
