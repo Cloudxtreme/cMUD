@@ -14,6 +14,7 @@ from evennia.utils import logger
 
 from django.contrib.auth import login
 
+
 _BASE_CHAR_TYPECLASS = settings.BASE_CHARACTER_TYPECLASS
 
 
@@ -112,7 +113,7 @@ def page_features(request):
     return render(request, 'features.html', pagevars)
 
 
-def page_404(request):
+def page_not_found(request):
     """
     404
     """
@@ -122,3 +123,39 @@ def page_404(request):
     }
 
     return render(request, 'error_pages/404.html', pagevars)
+
+
+def error_view(request):
+    """
+    500
+    """
+
+    pagevars = {
+        "page_title": "500",
+    }
+
+    return render(request, 'error_pages/500.html', pagevars)
+
+
+def permission_denied(request):
+    """
+    403
+    """
+
+    pagevars = {
+        "page_title": "403",
+    }
+
+    return render(request, 'error_pages/403.html', pagevars)
+
+
+def bad_request(request):
+    """
+    400
+    """
+
+    pagevars = {
+        "page_title": "400",
+    }
+
+    return render(request, 'error_pages/400.html', pagevars)
