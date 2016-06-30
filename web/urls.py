@@ -10,9 +10,10 @@ from django.conf.urls import url, include
 from evennia.web.urls import urlpatterns
 import views as web_views
 
-
-# custom error pages
-handler404 = 'web_views.page_404'
+handler404 = web_views.page_not_found
+handler500 = web_views.error_view
+handler403 = web_views.permission_denied
+handler400 = web_views.bad_request
 
 
 # eventual custom patterns
