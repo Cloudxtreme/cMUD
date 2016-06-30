@@ -110,3 +110,15 @@ def page_features(request):
     }
 
     return render(request, 'features.html', pagevars)
+
+
+def page_404(request):
+    """
+    404
+    """
+
+    pagevars = {
+        "page_title": "404",
+    }
+
+    return render(request, 'error_pages/404.html', pagevars)
